@@ -1,0 +1,58 @@
+# 示例配置：把 examples/ 下的两篇公版古文排成一本 32 开小书
+#
+# 运行：python build_book.py --config examples/book.yaml
+# 样张：python build_book.py --config examples/book.yaml --sample
+
+book:
+  title: 桃 花 源 记
+  subtitle: —— 公版古文排版样张 ——
+  edition: （样张 · 32 开）
+
+  # 偶数页页眉（出版惯例：偶数页印书名，奇数页印章名）
+  running_head_even: 桃 花 源 記
+  # 奇数页页眉模板，可用 {book} 与 {chapter}
+  running_head_odd_template: "{chapter}"
+
+  notes_heading: 排 版 说 明
+  publisher_notes:
+    - 本册为《cn-book-typeset》的演示样张，正文取自两篇公有领域的古代散文。
+    - 版式按标准 32 开（147×210mm）设置：五号宋体、1.5 倍行距、首行缩进两字符、镜像边距、奇偶页分侧页眉页码。
+    - 目录使用 Word 域，打开文档后全选（Ctrl+A）再按 F9 即可生成页码。
+    - 本文仅用于演示排版能力，不构成任何学术校勘结论。
+
+chapter_heading: null
+
+# 章节顺序即排版顺序；title 留空则取该文件的一级标题
+chapters:
+  - file: 01_桃花源记.md
+  - file: 02_岳阳楼记.md
+
+layout:
+  page_width_mm: 147
+  page_height_mm: 210
+  top_margin_cm: 2.0
+  bottom_margin_cm: 1.8
+  inner_margin_cm: 2.0     # 装订侧
+  outer_margin_cm: 1.6     # 切口侧
+  body_font: 宋体
+  body_size_pt: 10.5
+  line_spacing: 1.5
+  h1_font: 黑体
+  h1_size_pt: 16
+  h2_font: 黑体
+  h2_size_pt: 13
+  quote_font: 楷体
+  short_line_max_chars: 14
+
+# 脱敏白名单：这些号码/邮箱允许原样印出，其余一律替换
+pii:
+  whitelist:
+    - "13900001111"
+  placeholder: "〔联系方式已隐去〕"
+
+# 落盘前自检：这些字符串必须出现在成品里（防止误删免责声明）
+verify:
+  must_contain:
+    - "不构成任何学术校勘结论"
+
+output: out/样张_32开.docx

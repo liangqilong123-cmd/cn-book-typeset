@@ -1,0 +1,23 @@
+# 构建产物
+out/
+*.docx
+!examples/*.docx
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地私有配置（真实书稿的联系方式白名单别提交）
+book.local.yaml
+*.local.yaml
+
+# 编辑器中转文件（Word 打开时产生的）
+~$*.docx

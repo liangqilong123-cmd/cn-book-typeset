@@ -38,6 +38,8 @@
 
 ## 快速开始
 
+**不想装环境先看效果**：直接打开 [`examples/样张_32开_预览.docx`](examples/样张_32开_预览.docx)——那是用本工具排出来的成品，两篇古文、扉页、目录、分章页眉页码俱全。
+
 ```bash
 pip install python-docx pyyaml
 
